@@ -1,0 +1,51 @@
+
+# coding: utf-8
+
+# In[41]:
+
+
+f = open("births.csv")
+text = f.read()
+print(text)
+
+
+# In[42]:
+
+
+text
+
+
+# In[10]:
+
+
+new_text = text.split("\n")
+new_text
+
+
+# In[43]:
+
+
+new_list = []
+for i in new_text:
+    new_line = i.split(",")
+    new_list.append(new_line)
+print(new_list)
+
+
+# In[44]:
+
+
+print(new_list[1][4])
+days_counts = {}
+specific_count = 0
+new_list = new_list[1:len(new_list)]
+for i in range(1,8):
+    for j in new_list:
+        if int(j[3]) == i:
+            specific_count += int(j[4])
+    days_counts[i] = specific_count
+print(days_counts)
+    
+
+
+# So far we've parsed and grouped the data to show the number of babies born on each of the possible numerical days of any given week.
